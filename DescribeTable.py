@@ -14,14 +14,10 @@ client = RiakClient()
 
 table = "waterMeterData"
 
-query = "DESCRIBE waterMeterData"
-
-try:
-    response = client.ts_query(table, query)
-    rowcount = len(response.rows)
-    
-    for r in range (0, rowcount):
-        print response.rows[r]
+try:    
+    description = client.table(table).describe()
+    for row in description.rows:
+        print row
     
 except Exception as e:
     print e
