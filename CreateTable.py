@@ -19,7 +19,7 @@ CREATE TABLE waterMeterData (
     totalGallons double not null,
     PRIMARY KEY(
         (customerId, meterId, quantum(ts, 30, 'd')),
-        customerId, meterId, ts
+         customerId, meterId, ts
     )
 )
 """
