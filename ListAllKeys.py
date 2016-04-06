@@ -4,10 +4,10 @@
     HOWEVER listing all of the keys is an expensive operation that shouldn't be run
     against a production cluster for performance reasons.
 
-    For more information see the Java Client API documentation at: 
-    http://docs.basho.com/riak/latest/dev/taste-of-riak/python/
+    For more information see the Python Client API documentation at: 
+    http://docs.basho.com/riakts/latest/developing/python/
 
-    Note: This example uses the WeatherStationData table created in
+    Note: This example uses the table created in
     CreateTable.py and the data written in WriteTo.py.
 '''
 from riak import RiakClient
@@ -15,15 +15,14 @@ client = RiakClient()
 
 mytable = "WeatherStationData"
 table = client.table(mytable)
-stream = client.ts_stream_keys(table)
 
 key_count = 0
 
+stream = client.ts_stream_keys(table)
 for list_of_keys in stream:
     for key in list_of_keys:
         key_count += 1
         print key
-
 stream.close()
 
 print "Total Keys: " + str(key_count)

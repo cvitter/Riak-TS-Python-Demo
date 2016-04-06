@@ -2,7 +2,7 @@
     CreateTable.py
     Demonstrates how to create a table in Riak TS via the Python Client API
     For more information see the Python Client API documentation at: 
-    http://docs.basho.com/riak/latest/dev/taste-of-riak/python/
+    http://docs.basho.com/riakts/latest/developing/python/
 '''
 from riak import RiakClient
 client = RiakClient()

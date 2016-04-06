@@ -5,7 +5,7 @@
     For more information see the Java Client API documentation at: 
     http://docs.basho.com/riakts/latest/developing/python/
 
-    Note: This example uses the WeatherStationData table created in
+    Note: This example uses the table created in
     CreateTable.py and will fail if that code hasn't been successfully
     executed against your Riak TS cluster first.
 '''
