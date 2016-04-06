@@ -13,7 +13,7 @@
 from riak import RiakClient
 client = RiakClient()
 
-mytable = "WeatherStationData"
+mytable = "waterMeterData"
 table = client.table(mytable)
 
 key_count = 0
