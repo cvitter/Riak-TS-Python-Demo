@@ -10,16 +10,15 @@
     CreateTable.py and will fail if that code hasn't been successfully
     executed against your Riak TS cluster first.
 '''
-from datetime import datetime
+from datetime import datetime, timedelta
 import calendar
 from riak import RiakClient
 client = RiakClient()
 
 table = "waterMeterData"
 
-# Create new date and convert to epoch (required by TS)
-reading_date = datetime.now()
-epoch_date = calendar.timegm(datetime.timetuple(reading_date))*1000
+# Create start date for our time series records
+reading_date = datetime(2016, 4, 7, 12, 00)
 
 row_count = 1
 waterPressure = 40.0
@@ -28,6 +27,10 @@ totalGallons = 1000.0
 data_set = []
 
 while row_count <= 1000:
+    # Convert date to epoch for TS
+    epoch_date = calendar.timegm(datetime.timetuple(reading_date))*1000
+    
+    # Create row object and add to our data_set
     new_row = ['CUSTOMER-0001','METER-0001', epoch_date, waterPressure, gallonsPerHour, totalGallons]
     data_set.append(new_row)
     
@@ -46,6 +49,9 @@ while row_count <= 1000:
         waterPressure = 40.0
         gallonsPerHour = 2.0
     totalGallons += gallonsPerHour
+    
+    # Add one hour to the our date
+    reading_date += timedelta(hours=1)
     
     print str(row_count) + " " + str(new_row)
     row_count += 1
