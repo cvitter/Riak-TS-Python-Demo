@@ -1,6 +1,6 @@
 '''
     WriteTo.py
-    Demonstrates how to use the Riak TS Store object to write new records.
+    Demonstrates how to use the Riak TS Table .store() method to write new records.
     This example writes 1,000 records, subtly changing the values as
     the records get written to make the data more interesting.
     For more information see the Python Client API documentation at: 
@@ -59,6 +59,7 @@ while row_count <= 1000:
 try:   
     # Create new tsObject and save to the database with .store()
     table_object = client.table(table).new(data_set)
-    table_object.store()    
+    result = table_object.store()
+    print "Records written: " + str(result)    
 except Exception as e:
-    print e
+    print "Error: " + str(e)
