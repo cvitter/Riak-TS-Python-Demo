@@ -3,7 +3,7 @@
     Demonstrates how to use the Riak TS Store object to write new records.
     This example writes 1,000 records, subtly changing the values as
     the records get written to make the data more interesting.
-    For more information see the Java Client API documentation at: 
+    For more information see the Python Client API documentation at: 
     http://docs.basho.com/riakts/latest/developing/python/
 
     Note: This example uses the table created in

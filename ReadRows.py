@@ -3,9 +3,9 @@
     Demonstrates the basics of querying Riak TS. 
     http://docs.basho.com/riakts/latest/developing/python/
 
-    Note: This example uses the table created in
-    CreateTable.py and will fail if that code hasn't been successfully
-    executed against your Riak TS cluster first.
+    Note: This example uses the table created in CreateTable.py and 
+    the data written in WriteTo.py and will fail if that code hasn't 
+    been successfully executed against your Riak TS cluster first.
 '''
 from datetime import datetime
 import calendar

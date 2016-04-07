@@ -27,6 +27,5 @@ CREATE TABLE waterMeterData (
 try:
     client.ts_query(table, query)
     print "Table '" + table + "' created successfully"
-    
 except Exception as e:
     print e

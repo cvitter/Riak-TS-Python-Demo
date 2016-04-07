@@ -18,6 +18,5 @@ try:
     description = client.table(table).describe()
     for row in description.rows:
         print row
-    
 except Exception as e:
     print e
