@@ -1,33 +1,36 @@
-'''
-    ReadRows.py
-    Demonstrates the basics of querying Riak TS. 
-    http://docs.basho.com/riakts/latest/developing/python/
-
-    Note: This example uses the table created in CreateTable.py and 
-    the data written in WriteTo.py and will fail if that code hasn't 
-    been successfully executed against your Riak TS cluster first.
-'''
 from datetime import datetime
 import calendar
 from riak import RiakClient
 client = RiakClient()
 
+__doc__ = """\
+ReadRows.py
+Demonstrates the basics of querying Riak TS.
+http://docs.basho.com/riakts/latest/developing/python/
+
+Note: This example uses the table created in CreateTable.py and
+the data written in WriteTo.py and will fail if that code hasn't
+been successfully executed against your Riak TS cluster first.
+"""
+
 table = "waterMeterData"
 
 # Create start date and end date for the range query and convert to epoch
-start_date = calendar.timegm( datetime.timetuple( datetime(2016, 4, 9, 12, 00) ) )*1000 
-emd_date = calendar.timegm( datetime.timetuple( datetime(2016, 4, 11, 12, 00) ) )*1000
+start_ts = calendar.timegm(datetime.timetuple(datetime(2016, 4, 9, 12, 00))) * 1000
+end_ts = calendar.timegm(datetime.timetuple(datetime(2016, 4, 11, 12, 00))) * 1000
 
-query = """
-    select * from waterMeterData where 
-        ts > %s and ts < %s and 
-        customerId = 'CUSTOMER-0001' and meterId = 'METER-0001'
-""" % (start_date, emd_date)
+query = """\
+SELECT *
+FROM
+    waterMeterData
+WHERE
+    ts > {} and ts < {} and
+    customer_id = 'CUSTOMER-0001' and meter_id = 'METER-0001'
+""".format(start_ts, end_ts)
 
 data_set = client.ts_query(table, query)
 rowcount = len(data_set.rows)
 
-for r in range (0, rowcount):
-    row = data_set.rows[r]
-    print row
-print "Total Rows: " + str(rowcount)
+for row in data_set.rows:
+    print(row)
+print("Total Rows: {}".format(rowcount))
