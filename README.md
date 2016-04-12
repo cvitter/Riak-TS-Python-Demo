@@ -24,3 +24,5 @@ TS and the features in the 1.2 release
 10. WriteWithPut.py - Use `ts_put` for a bulk upload.
 
 Please submit PRs and Issues.
+
+Thanks to Sean (https://github.com/seanjensengrey) for rewriting most of this code to make it more Python 2/3 compatible and stylish.
