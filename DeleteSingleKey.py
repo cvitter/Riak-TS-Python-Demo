@@ -14,7 +14,7 @@ been successfully executed against your Riak TS cluster first.
 """
 
 table = "waterMeterData"
-key = ['CUSTOMER-0001', 'METER-0001', datetime(2016, 4, 13, 3, 0)]
+key = [datetime(2016, 4, 13, 3, 0)]
 
 try:
     result = client.ts_delete(table, key)
