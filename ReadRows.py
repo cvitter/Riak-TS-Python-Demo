@@ -1,7 +1,10 @@
 from datetime import datetime
 import calendar
 from riak import RiakClient
-client = RiakClient()
+
+# Note: If you wish Riak TS to return date fields as Python dates
+# and not epoch you need to set the transport_options as shown below
+client = RiakClient(transport_options={'ts_convert_timestamp': True})
 
 __doc__ = """\
 ReadRows.py
