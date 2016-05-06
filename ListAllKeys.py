@@ -8,6 +8,10 @@ Demonstrates how to use the ListKeys builder to return all of the primary keys i
 !!WARNING!!
     Listing all of the keys is an expensive operation that shouldn't be run
     against a production cluster for performance reasons.
+    
+    Bug Warning: .ts_stream_keys only works with tables that have three part
+    primary keys and will error out if the primary key only consists of a
+    quantum.
 
 For more information see the Python Client API documentation at:
 http://docs.basho.com/riakts/latest/developing/python/
