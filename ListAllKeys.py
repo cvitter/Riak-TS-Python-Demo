@@ -20,9 +20,10 @@ been successfully executed against your Riak TS cluster first.
 table = client.table("waterMeterData")
 
 key_count = 0
-stream = client.ts_stream_keys(table)
-for list_of_keys in stream:
-    for key in list_of_keys:
+stream = client.ts_stream_keys(table, 1000)
+
+for key_list in stream:
+    for key in key_list:
         key_count += 1
         print(key)
 stream.close()

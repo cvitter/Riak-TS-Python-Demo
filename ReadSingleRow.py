@@ -14,7 +14,7 @@ been successfully executed against your Riak TS cluster first.
 
 table = "waterMeterData"
 
-key = ['CUSTOMER-0001', 'METER-0001', datetime(2016, 4, 11, 2, 0)]
+key = [datetime(2016, 4, 9, 12, 00)]
 
 data_set = client.ts_get(table, key)
 print(data_set.rows[0])

@@ -15,9 +15,13 @@ been successfully executed against your Riak TS cluster first.
 
 table = "waterMeterData"
 
+# Function to convert Python date to Unix Epoch
+def convert_to_epoch ( date_to_convert ):
+    return calendar.timegm(datetime.timetuple( date_to_convert )) * 1000
+
 # Create start date and end date for the range query and convert to epoch
-start_ts = calendar.timegm(datetime.timetuple(datetime(2016, 4, 9, 12, 00))) * 1000
-end_ts = calendar.timegm(datetime.timetuple(datetime(2016, 4, 15, 12, 00))) * 1000
+start_ts = convert_to_epoch( datetime(2016, 4, 9, 12, 00) )
+end_ts = convert_to_epoch( datetime(2016, 4, 15, 12, 00) )
 
 query = """\
 SELECT
