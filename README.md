@@ -4,7 +4,7 @@ Sample Python 2 and 3 code that demonstrates how to use the Python client to wor
 [Riak TS](http://docs.basho.com/riakts/latest/) (Time Series). Riak TS is an extension
 of Riak KV that is optimized for storing semistructured data by timestamp.
 
-Note: Please install Version 2.5.2 of the Riak Python client.
+Note: Please install Version 2.5.2 or later of the Riak Python client.
 
 # What This Code Does
 
