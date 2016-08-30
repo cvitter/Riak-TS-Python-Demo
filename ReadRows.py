@@ -11,6 +11,9 @@ ReadRows.py
 Demonstrates the basics of querying Riak TS.
 http://docs.basho.com/riakts/latest/developing/python/
 
+V1.4: Updated to demonstrate the use of ISO 8061 date strings as
+      of Riak TS 1.4 in place of the Unix epoch
+
 Note: This example uses the table created in CreateTable.py and
 the data written in WriteTo.py and will fail if that code hasn't
 been successfully executed against your Riak TS cluster first.
