@@ -18,22 +18,14 @@ been successfully executed against your Riak TS cluster first.
 
 table = "waterMeterData"
 
-# Function to convert Python date to Unix Epoch
-def convert_to_epoch ( date_to_convert ):
-    return calendar.timegm(datetime.timetuple( date_to_convert )) * 1000
-
-# Create start date and end date for the range query and convert to epoch
-start_ts = convert_to_epoch( datetime(2016, 4, 9, 12, 00) )
-end_ts = convert_to_epoch( datetime(2016, 4, 11, 12, 00) )
-
 query = """\
 SELECT *
 FROM
     waterMeterData
 WHERE
-    ts > {} and ts < {} and
+    ts > '2016-04-09 12:00' and ts < '2016-04-11 12:00' and
     customer_id = 'CUSTOMER-0001' and meter_id = 'METER-0001'
-""".format(start_ts, end_ts)
+"""
 
 data_set = client.ts_query(table, query)
 rowcount = len(data_set.rows)
